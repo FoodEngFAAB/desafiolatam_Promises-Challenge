@@ -31,4 +31,10 @@ const finishedProcess = (time) => {
 }
 finishedProcess(3000)
 
-
+//Función asíncrona para recibir el mensaje directamente con await, para ser mostrado en la consola del navegador, agregando el llamado a las dos funciones principales.
+const finalMsg = async () => {
+    getData()
+    const response = await finishedProcess(3000)
+    console.log(response)
+}
+finalMsg()
