@@ -22,3 +22,13 @@ const getData = async () => {
 }
 getData()
 
+
+//Uso de setTimeout para retornar mensaje tras tiempo especificado (3 segundos)
+const finishedProcess = (time) => {
+    setTimeout(() => {
+        console.log(`Información enviada (a los`, `${time/1000} segundos).`)
+    })
+}
+finishedProcess(3000)
+
+
