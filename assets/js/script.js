@@ -12,29 +12,25 @@ const getData = async () => {
                 console.log(`${element.id}: ${element.title}`)
             }
         })
-        //Reporte vía consola de resultados
-        console.log(valueRequired.message)
     }
     //Reporte vía consola en caso de error(es)
     catch (err) {
         console.log(`Se ha producido el siguiente error: ${err}.`)
     }
 }
-getData()
-
-
 //Uso de setTimeout para retornar mensaje tras tiempo especificado (3 segundos)
-const finishedProcess = (time) => {
-    setTimeout(() => {
-        console.log(`Información enviada (a los`, `${time/1000} segundos).`)
+const finishedProcess = () => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(`Información enviada.`)
+        }, 3000)
     })
 }
-finishedProcess(3000)
-
 //Función asíncrona para recibir el mensaje directamente con await, para ser mostrado en la consola del navegador, agregando el llamado a las dos funciones principales.
 const finalMsg = async () => {
     getData()
-    const response = await finishedProcess(3000)
-    console.log(response)
+    finishedProcess()
+    const msg = await finishedProcess();
+    console.log(msg);
 }
 finalMsg()
